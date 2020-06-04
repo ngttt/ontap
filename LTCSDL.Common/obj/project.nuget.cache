@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FEZuabFcaYi/f6REAZDtqOmN/Sqk/tynoQqX+dGcfuV5ZBhrax9cGKWBzp1aMgIxd2AoYx4ptRweKccdaJIuxQ==",
+  "dgSpecHash": "UZG5pXyVMZWb5NHvQ08Cxcm1kf7EOCRhDFpSSXra/7AkJU8ujC3DWaAoelQfa99iJUorjMuDoSGR2R+Cqamotw==",
   "success": true,
-  "projectFilePath": "D:\\github\\school\\LTCSDL\\HOME\\LTCSDL\\LTCSDL.Common\\LTCSDL.Common.csproj",
+  "projectFilePath": "D:\\github\\school\\LTCSDL\\LTCSDL-192\\LTCSDL.Common\\LTCSDL.Common.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tien0\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\tien0\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

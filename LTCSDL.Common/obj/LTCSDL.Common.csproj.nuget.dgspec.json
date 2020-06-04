@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\github\\school\\LTCSDL\\HOME\\LTCSDL\\LTCSDL.Common\\LTCSDL.Common.csproj": {}
+    "D:\\github\\school\\LTCSDL\\LTCSDL-192\\LTCSDL.Common\\LTCSDL.Common.csproj": {}
   },
   "projects": {
-    "D:\\github\\school\\LTCSDL\\HOME\\LTCSDL\\LTCSDL.Common\\LTCSDL.Common.csproj": {
+    "D:\\github\\school\\LTCSDL\\LTCSDL-192\\LTCSDL.Common\\LTCSDL.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\github\\school\\LTCSDL\\HOME\\LTCSDL\\LTCSDL.Common\\LTCSDL.Common.csproj",
+        "projectUniqueName": "D:\\github\\school\\LTCSDL\\LTCSDL-192\\LTCSDL.Common\\LTCSDL.Common.csproj",
         "projectName": "LTCSDL.Common",
-        "projectPath": "D:\\github\\school\\LTCSDL\\HOME\\LTCSDL\\LTCSDL.Common\\LTCSDL.Common.csproj",
+        "projectPath": "D:\\github\\school\\LTCSDL\\LTCSDL-192\\LTCSDL.Common\\LTCSDL.Common.csproj",
         "packagesPath": "C:\\Users\\tien0\\.nuget\\packages\\",
-        "outputPath": "D:\\github\\school\\LTCSDL\\HOME\\LTCSDL\\LTCSDL.Common\\obj\\",
+        "outputPath": "D:\\github\\school\\LTCSDL\\LTCSDL-192\\LTCSDL.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tien0\\AppData\\Roaming\\NuGet\\NuGet.Config",

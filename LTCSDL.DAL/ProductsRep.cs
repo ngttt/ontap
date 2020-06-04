@@ -1,44 +1,57 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
-// khai báo các thư viện cần dùng
-using LTCSDL.DAL;
+
+//thêm các thư viện cần dùng
+using LTCSDL.Common.DAL;
+using LTCSDL.Common.Rsp;
+using LTCSDL.DAL.Models;
 
 namespace LTCSDL.DAL
 {
-    using System.Linq;
-    using LTCSDL.Common.DAL;
-    using LTCSDL.DAL.Models;
-    using LTCSDL.Common.Rsp;
-    //khai báo thư việc cần dùng
-
-    // mình cần dùng public nên để public hàm
-    public class ProductsRep : GenericRep<NorthwindContext, Products> //đối tượng generic đc match zs northwind và products
+    class ProductsRep : GenericRep<NorthwindContext, Products>
     {
         #region -- Overrides --
+
+        /// <summary>
+        /// Read single object
+        /// </summary>
+        /// <param name="id">Primary key</param>
+        /// <returns>Return the object</returns>
         public override Products Read(int id)
         {
-            var res = All.FirstOrDefault(p => p.ProductId == id); // lấy tất cả thông tin từ bảng products từ id products
+            var res = All.FirstOrDefault(p => p.ProductId == id);
             return res;
         }
+
+
+        /// <summary>
+        /// Remove and not restore
+        /// </summary>
+        /// <param name="id">Primary key</param>
+        /// <returns>Number of affect</returns>
         public int Remove(int id)
         {
-            var m = base.All.FirstOrDefault(i => i.ProductId == id);
-            m = base.Delete(m);
+            var m = base.All.First(i => i.ProductId == id);
+            m = base.Delete(m); //TODO
             return m.ProductId;
         }
+
         #endregion
 
-        // viết hàm create product
-        #region --Methods--
+        #region -- Methods --
+
         /// <summary>
-        /// Intialize
+        /// Initialize
         /// </summary>
 
-        public SimpleRsp CreateProduct(Products pro)
+
+        //viết hàm create product
+        public SingleRsp CreateProduct(Products pro)
         {
-            var res = new SimpleRsp();
-            using (var context = new NorthwindContext())
+            var res = new SingleRsp();
+            using (var context = new NorthwindContext()) // using transition nếu minh gọi sai sẽ tự động call back
             {
                 using (var tran = context.Database.BeginTransaction())
                 {
@@ -46,9 +59,9 @@ namespace LTCSDL.DAL
                     {
                         var t = context.Products.Add(pro);
                         context.SaveChanges();
-                        tran.Commit(); //  có j thay đổi sẽ tự động update
+                        tran.Commit(); // có j thay đổi sẽ tự động đưa lê dữ liệu
                     }
-                    catch (Exception ex)
+                    catch(Exception ex)
                     {
                         tran.Rollback();
                         res.SetError(ex.StackTrace);
@@ -58,29 +71,6 @@ namespace LTCSDL.DAL
             return res;
         }
 
-        // viết hàm Update
-        public SimpleRsp UpdateProduct(Products pro)
-        {
-            var res = new SimpleRsp();
-            using (var context = new NorthwindContext())
-            {
-                using (var tran = context.Database.BeginTransaction())
-                {
-                    try
-                    {
-                        var t = context.Products.Update(pro);
-                        context.SaveChanges();
-                        tran.Commit();
-                    }
-                    catch (Exception ex)
-                    {
-                        tran.Rollback();
-                        res.SetError(ex.StackTrace);
-                    }
-                }
-            }
-            return res;
-        }
         #endregion
     }
 }

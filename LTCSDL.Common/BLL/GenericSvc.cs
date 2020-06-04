@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace LTCSDL.Common.BLL
 {
-    using DAL;
+    using DAL;   
     using Rsp;
     public class GenericSvc<D, T> : IGenericSvc<T> where T : class where D : IGenericRep<T>, new()
     {
@@ -16,9 +16,9 @@ namespace LTCSDL.Common.BLL
         /// </summary>
         /// <param name="m">The model</param>
         /// <returns>Return the result</returns>
-        public virtual SimpleRsp Create(T m)
+        public virtual SingleRsp Create(T m)
         {
-            var res = new SimpleRsp();
+            var res = new SingleRsp();
 
             try
             {
@@ -64,13 +64,13 @@ namespace LTCSDL.Common.BLL
             return _rep.Read(p);
         }
 
-
+       
         /// <summary>
         /// Read single object
         /// </summary>
         /// <param name="id">Primary key</param>
         /// <returns>Return the object</returns>
-        public virtual SimpleRsp Read(int id)
+        public virtual SingleRsp Read(int id)
         {
             return null;
         }
@@ -80,7 +80,7 @@ namespace LTCSDL.Common.BLL
         /// </summary>
         /// <param name="code">Secondary key</param>
         /// <returns>Return the object</returns>
-        public virtual SimpleRsp Read(string code)
+        public virtual SingleRsp Read(string code)
         {
             return null;
         }
@@ -90,9 +90,9 @@ namespace LTCSDL.Common.BLL
         /// </summary>
         /// <param name="m">The model</param>
         /// <returns>Return the result</returns>
-        public virtual SimpleRsp Update(T m)
+        public virtual SingleRsp Update(T m)
         {
-            var res = new SimpleRsp();
+            var res = new SingleRsp();
 
             try
             {
@@ -116,7 +116,7 @@ namespace LTCSDL.Common.BLL
             var res = new MultipleRsp();
 
             try
-            {
+            {    
                 _rep.Update(l);
             }
             catch (Exception ex)
@@ -132,7 +132,7 @@ namespace LTCSDL.Common.BLL
         /// </summary>
         /// <param name="id">Primary key</param>
         /// <returns>Return the result</returns>
-        public virtual SimpleRsp Delete(int id)
+        public virtual SingleRsp Delete(int id)
         {
             return null;
         }
@@ -142,7 +142,7 @@ namespace LTCSDL.Common.BLL
         /// </summary>
         /// <param name="code">Secondary key</param>
         /// <returns>Return the result</returns>
-        public virtual SimpleRsp Delete(string code)
+        public virtual SingleRsp Delete(string code)
         {
             return null;
         }
@@ -152,7 +152,7 @@ namespace LTCSDL.Common.BLL
         /// </summary>
         /// <param name="id">Primary key</param>
         /// <returns>Return the result</returns>
-        public virtual SimpleRsp Restore(int id)
+        public virtual SingleRsp Restore(int id)
         {
             return null;
         }
@@ -162,7 +162,7 @@ namespace LTCSDL.Common.BLL
         /// </summary>
         /// <param name="code">Secondary key</param>
         /// <returns>Return the result</returns>
-        public virtual SimpleRsp Restore(string code)
+        public virtual SingleRsp Restore(string code)
         {
             return null;
         }

@@ -15,7 +15,7 @@ namespace LTCSDL.Common.BLL
         /// </summary>
         /// <param name="m">The model</param>
         /// <returns>Return the result</returns>
-        SimpleRsp Create(T m);
+        SingleRsp Create(T m);
 
         /// <summary>
         /// Create the models
@@ -31,27 +31,27 @@ namespace LTCSDL.Common.BLL
         /// <returns>Return query data</returns>
         IQueryable<T> Read(Expression<Func<T, bool>> p);
 
-
+        
         /// <summary>
         /// Read single object
         /// </summary>
         /// <param name="id">Primary key</param>
         /// <returns>Return the object</returns>
-        SimpleRsp Read(int id);
+        SingleRsp Read(int id);
 
         /// <summary>
         /// Read single object
         /// </summary>
         /// <param name="code">Secondary key</param>
         /// <returns>Return the object</returns>
-        SimpleRsp Read(string code);
+        SingleRsp Read(string code);
 
         /// <summary>
         /// Update the model
         /// </summary>
         /// <param name="m">The model</param>
         /// <returns>Return the result</returns>
-        SimpleRsp Update(T m);
+        SingleRsp Update(T m);
 
         /// <summary>
         /// Update the models
@@ -65,28 +65,28 @@ namespace LTCSDL.Common.BLL
         /// </summary>
         /// <param name="id">Primary key</param>
         /// <returns>Return the result</returns>
-        SimpleRsp Delete(int id);
+        SingleRsp Delete(int id);
 
         /// <summary>
         /// Delete single object
         /// </summary>
         /// <param name="code">Secondary key</param>
         /// <returns>Return the result</returns>
-        SimpleRsp Delete(string code);
+        SingleRsp Delete(string code);
 
         /// <summary>
         /// Restore the model
         /// </summary>
         /// <param name="id">Primary key</param>
         /// <returns>Return the result</returns>
-        SimpleRsp Restore(int id);
+        SingleRsp Restore(int id);
 
         /// <summary>
         /// Restore the model
         /// </summary>
         /// <param name="code">Secondary key</param>
         /// <returns>Return the result</returns>
-        SimpleRsp Restore(string code);
+        SingleRsp Restore(string code);
 
         /// <summary>
         /// Remove and not restore

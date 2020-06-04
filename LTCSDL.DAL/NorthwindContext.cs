@@ -2,8 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace LTCSDL.DAL.Models
+namespace LTCSDL.DAL
 {
+    using Models;
     public partial class NorthwindContext : DbContext
     {
         public NorthwindContext()
@@ -22,6 +23,7 @@ namespace LTCSDL.DAL.Models
         public virtual DbSet<CustomerAndSuppliersByCity> CustomerAndSuppliersByCity { get; set; }
         public virtual DbSet<CustomerCustomerDemo> CustomerCustomerDemo { get; set; }
         public virtual DbSet<CustomerDemographics> CustomerDemographics { get; set; }
+        public virtual DbSet<CustomerOrderAmt> CustomerOrderAmt { get; set; }
         public virtual DbSet<Customers> Customers { get; set; }
         public virtual DbSet<EmployeeTerritories> EmployeeTerritories { get; set; }
         public virtual DbSet<Employees> Employees { get; set; }
@@ -49,7 +51,7 @@ namespace LTCSDL.DAL.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                //To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=Northwind;Persist Security Info=True;User ID=sa;Password=1234;Pooling=False;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True;");
             }
         }
@@ -186,6 +188,26 @@ namespace LTCSDL.DAL.Models
                     .IsFixedLength();
 
                 entity.Property(e => e.CustomerDesc).HasColumnType("ntext");
+            });
+
+            modelBuilder.Entity<CustomerOrderAmt>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("CustomerOrderAmt");
+
+                entity.Property(e => e.Address).HasMaxLength(60);
+
+                entity.Property(e => e.CompanyName)
+                    .IsRequired()
+                    .HasMaxLength(40);
+
+                entity.Property(e => e.CustomerId)
+                    .HasColumnName("CustomerID")
+                    .HasMaxLength(5)
+                    .IsFixedLength();
+
+                entity.Property(e => e.OrderId).HasColumnName("OrderID");
             });
 
             modelBuilder.Entity<Customers>(entity =>
